@@ -15,7 +15,7 @@ The following links will allow you to directly download each of the default skin
 *   [GBC](https://github.com/rileytestut/GBCDeltaCore/raw/master/GBCDeltaCore/Controller%20Skin/Standard.deltaskin)
 *   [GBA](https://github.com/rileytestut/GBADeltaCore/raw/master/GBADeltaCore/Controller%20Skin/Standard.deltaskin)
 *   [NDS](https://github.com/rileytestut/DSDeltaCore/raw/master/DSDeltaCore/Controller%20Skin/Standard.deltaskin)
-*   [Download All](https://drive.google.com/uc?authuser=0&id=1RQsKmhS38JTjtdmZ3YjcSFZ1KojXzPWI&export=download)
+*   [Download All](https://noah978.github.io/Delta-Docs/assets/all-skins-4-24-2020.zip)
 
 Please note that the Nintendo DS default skin is still currently the same design as SNES with modifications to fit the screen size of the DS.
 
@@ -69,7 +69,7 @@ This is how Delta further determines the compatibility of each skin. Unlike the 
 
 This determines whether the skin should be displayed in “debug mode.” By default this is set to false, but when set to true, Delta will overlay red squares on top of where the buttons are mapped to. It’s recommended that you set this to true while making your skin, so that the buttons can nicely match up with the image.
 
-![Debug Mode Enabled](http://www.gba4iosapp.com/images/tutorials/skins/debug_mode.png)
+![Debug Mode Enabled](https://noah978.github.io/Delta-Docs/assets/example-skin-debug-enabled.png)
 
 ### representations
 
@@ -114,7 +114,7 @@ For edgeToEdge (aka X-series) devices:
 *   Medium = iPhone 11
 *   Large = iPhone 11 Pro Max
 
-If all you want to do is change the images of an existing skin or one of the "default" templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](https://github.com/rileytestut/DeltaCore/wiki/Skins#finishing-the-skin) section below to learn how to turn these files into an actual ```.deltaskin``` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
+If all you want to do is change the images of an existing skin or one of the "default" templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](https://noah978.github.io/Delta-Docs/Skins#finishing-the-skin) section below to learn how to turn these files into an actual ```.deltaskin``` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
 
 # Advanced Mapping
 
