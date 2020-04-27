@@ -14,10 +14,20 @@ The following links will allow you to directly download each of the default skin
 *   [N64](https://github.com/rileytestut/N64DeltaCore/raw/master/N64DeltaCore/Controller%20Skin/Standard.deltaskin)
 *   [GBC](https://github.com/rileytestut/GBCDeltaCore/raw/master/GBCDeltaCore/Controller%20Skin/Standard.deltaskin)
 *   [GBA](https://github.com/rileytestut/GBADeltaCore/raw/master/GBADeltaCore/Controller%20Skin/Standard.deltaskin)
-*   [NDS](https://github.com/rileytestut/DSDeltaCore/raw/master/DSDeltaCore/Controller%20Skin/Standard.deltaskin)
-*   [Download All](https://noah978.github.io/Delta-Docs/assets/all-skins-4-24-2020.zip)
+*   [NDS](https://github.com/rileytestut/MelonDSDeltaCore/raw/master/MelonDSDeltaCore/Controller%20Skin/Standard.deltaskin)
+*   [Download All](https://noah978.github.io/Delta-Docs/assets/all-skins.zip)
 
-Please note that the Nintendo DS default skin is still currently the same design as SNES with modifications to fit the screen size of the DS.
+### Looking for inspiration?
+
+Check out some of the skins other people have made at one of the following sites:
+
+*   [DELTASKINS](http://deltaskins.us)
+*   [Skins4Delta](https://skins4delta.com)
+*   [Circa's Delta Skins](https://circa.im/emu/delta/skins/)
+
+Skins4Delta also offers a [Skin Generator](https://generator.skins4delta.com/) that can take whatever image you want and apply that to the background of their default skin! While the capabilities are not infinite, you can still make your very own skin in seconds.
+
+The [r/Delta_Emulator](https://reddit.com/r/Delta_Emulator) also has an active [Discord Server](https://discord.gg/ERssHqy) that will sometimes take skin requests.
 
 ## Skin Basics
 
