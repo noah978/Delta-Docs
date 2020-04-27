@@ -214,18 +214,18 @@ This one is specific to Nintendo DS. The mapping must be precise so that the fin
 
 | Button     | GB(C)   | GBA     | DS      | NES     | SNES    | N64     |
 |------------|---------|---------|---------|---------|---------|---------|
-| a          | &check; | &check; | &check; | &check; | &check; | &check; |
-| b          | &check; | &check; | &check; | &check; | &check; | &check; |
-| x          |         |         | &check; |         | &check; |         |
-| y          |         |         | &check; |         | &check; |         |
-| select     | &check; | &check; | &check; | &check; | &check; |         |
-| start      | &check; | &check; | &check; | &check; | &check; | &check; |
-| dpad       | &check; | &check; | &check; | &check; | &check; | &check; |
-| cpad       |         |         |         |         |         | &check; |
-| thumbstick |         |         |         |         |         | &check; |
-| l          |         | &check; | &check; |         |         | &check; |
-| r          |         | &check; | &check; |         |         | &check; |
-| z          |         |         |         |         |         | &check; |
+| a          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| b          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| x          |         |         |    ✔   |         |    ✔    |         |
+| y          |         |         |    ✔   |         |    ✔    |         |
+| select     |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |         |
+| start      |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| dpad       |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| cpad       |         |         |         |         |         |    ✔    |
+| thumbstick |         |         |         |         |         |    ✔    |
+| l          |         |    ✔    |    ✔   |         |         |    ✔    |
+| r          |         |    ✔    |    ✔   |         |         |    ✔    |
+| z          |         |         |         |         |         |    ✔    |
 
 The following are all custom buttons like the menu button. They work across all systems and utilize Delta Emulator features.
 
