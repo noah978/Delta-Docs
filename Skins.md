@@ -2,7 +2,7 @@
 # Delta Custom Skins
 
 ### ⚠️ Warning ⚠️
-Be aware that the properties of Delta Skins may change over time. Currently, this tutorial lacks any information regarding iPad custom skins. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
+Be aware that the properties of Delta Skins may change over time. Currently, this tutorial has information regarding iPad custom skins, but the details might change when Delta for iPad is released. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
 Delta Emulator was designed with the purpose of allowing custom skins to be produced *by anyone*. This allows everyone to create their own skins for either functionality or creativity. Please read on if you are interested in making your own skin or just want to know how Delta's custom skins work.
 
@@ -58,11 +58,15 @@ While working with a JSON file, it's suggested that you close all braces and bra
 
 Open up the ```info.json``` file and you should see these five items.
 
-*   name
-*   identifier
-*   gameTypeIdentifier
-*   debug
-*   representations
+```
+{
+  "name" : "Standard N64",
+  "identifier" : "com.delta.n64.standard",
+  "gameTypeIdentifier" : "com.rileytestut.delta.game.n64",
+  "debug" : false,
+  "representations" : {...}
+}
+```
 
 Each one will be explained further below.
 
@@ -72,46 +76,89 @@ This item is rather self-explanatory, this is what the skin will be called withi
 
 ### identifier
 
-This is how Delta internally uses and stores skin files. To ensure that one skin doesn't overwrite another skin, each skin identifier should be unique. The default Delta skins have the identifier com.Delta.gba.standard. However, it is recommended that you follow Apple's reverse-dns format for this to ensure it is unique. For example, use com.rileytestut.retro. The actual value of identifier doesn't matter so long as it is unique.
+This is how Delta internally uses and stores skin files. To ensure that one skin doesn't overwrite another skin, each skin identifier should be unique. The default Delta skins have the identifier ```com.delta.console.standard```. While these can technically be set to any unique value, it is recommended that you follow Apple's reverse-dns format for this to ensure it is unique. Your identifier will look like the following: ```com.yourname.console.skinname```. Be sure to include the console if you plan to release the same skin for multiple consoles.
 
 ### gameTypeIdentifier
 
-This is how Delta further determines the compatibility of each skin. Unlike the identifier, each gameTypeIdentifier needs to remain the same for Delta to identify which system the skin belongs to. For example, the Standard GBA skin has the following gameTypeIdentifier: com.rileytestut.Delta.game.gba.
+This is how Delta further determines the compatibility of each skin. Unlike the identifier, each gameTypeIdentifier needs to remain the same for Delta to identify which system the skin belongs to. Use the following table to decide which identifier you need to use.
+
+| Console / System                      | gameTypeIdentifier              	|
+|---------------------------------------|-----------------------------------|
+| GameBoy (Color)                     	| com.rileytestut.delta.game.gbc  	|
+| GameBoy Advance                     	| com.rileytestut.delta.game.gba  	|
+| Nintendo DS                         	| com.rileytestut.delta.game.ds   	|
+| Nintendo Entertainment System       	| com.rileytestut.delta.game.nes  	|
+| Super Nintendo Entertainment System 	| com.rileytestut.delta.game.snes 	|
+| Nintendo 64                         	| com.rileytestut.delta.game.n64  	|
 
 ### debug
 
-This determines whether the skin should be displayed in “debug mode.” By default this is set to false, but when set to true, Delta will overlay red squares on top of where the buttons are mapped to. It’s recommended that you set this to true while making your skin, so that the buttons can nicely match up with the image.
+This determines whether the skin should be displayed in "debug mode." By default this is set to false, but when set to true, Delta will overlay red squares on top of where the buttons are mapped to. It’s recommended that you set this to true while making your skin, so that you can see when the buttons can match up nicely with the image.
 
 ![Debug Mode Enabled](https://noah978.github.io/Delta-Docs/assets/example-skin-debug-enabled.png)
 
 ### representations
 
-Within the representations, you will find another bracketed category called iPhone. When iPad support is released, the iPad will be listed as a separate representation. In the following section, we will be focusing on the items inside the iPhone representation.
+```
+"representations" : {
+  "iphone" : {...},
+  "ipad" : {...}
+}
+```
+
+Within the representations, you will find another bracketed category called iphone. When iPad support is released, the iPad will be listed as a separate representation. In the following section, we will be focusing on what you need to know to make new images and change out the old ones.
 
 # Changing the Images
 
 Almost every time you create or modify a skin, you'll be changing the images that are displayed when actually using the skin. Luckily, changing the images is rather straightforward!
 
-Inside the iPhone category, you'll see two new more categories: **standard** and **edgeToEdge**. Standard contains the details for skins that support for regular iPhones. EdgeToEdge gives the skin support for all X-series devices with the taller screen size. You don't have to include both categories and the skin should still work for the iPhones of the chosen variety.
+Inside the iphone representation, you'll see two more categories:
 
-Delta detects what orientations are supported in a skin by the presence of the portrait and landscape items in the ```info.json``` file. If you wanted to have a portrait-only skin, you'd need to delete the landscape item; similarly, if you wanted to have a landscape-only skin, you'd need to delete the portrait item. Of course, if you wanted to support both orientations, you don't need to delete either.
+```
+"iphone" : {
+  "standard" : {...},
+  "edgeToEdge" : {...}
+}
+```
 
-The following items *can* all be used within both the standard and edgeToEdge categories even if they aren't in the default skins.
+Standard contains the details for skins that support regular-size iPhones. EdgeToEdge gives the skin support for all X-series devices with the taller screen size. You don't have to include both categories and the skin should still work correctly for the iPhones of the chosen variety.
 
-*   assets
-*   items
-*   mappingSize
-*   screens
-*   extendedEdges
-*   translucent
+Delta detects what orientations are supported in a skin by the presence of the portrait and landscape items in the ```info.json``` file.
 
-For the purposes of this section, we will only focus on the **translucent** and **asset** items.
+```
+"edgeToEdge" : {
+  "portrait" : {...},
+  "landscape" : {...}
+}
+ ```
+
+If you wanted to have a portrait-only skin, you'd need to delete the landscape item; similarly, if you wanted to have a landscape-only skin, you'd need to delete the portrait item. Of course, if you wanted to support both orientations, you don't need to delete either.
+
+The following items can all be used within **both** the standard and edgeToEdge categories:
+
+```
+"portrait" : {
+  "assets" : {...},
+  "items" : [...],
+  "screens" : [...],
+  "mappingSize" : {...},
+  "extendedEdges" : {...},
+  "translucent" : false
+}
+```
+
+For the purposes of this section, we will only focus on the **translucent** and **assets** items.
 
 ### translucent
 
 You can determine whether the orientation you're editing should support Delta's customizable opacity feature. Typically, only landscape skins that go on top of the game screen support this feature, but there's nothing stopping you from enabling it on portrait skins or disabling it for your own landscape overlay skin. To enable this feature, set the value to true. If you want to disable this feature, set it to false, or delete it entirely.
 
 ### assets
+
+The assets section is used to load the controller skin images. There are two ways you can create your images:
+1.  Using PDF files which Delta can automatically resize for each device,
+2.  Or using PNG files which you will need three different sizes to support each device.
+
 **Using PDFs**
 
 ```
@@ -120,14 +167,13 @@ You can determine whether the orientation you're editing should support Delta's 
 },
 ```
 
-The assets section is used to load the controller skin images. The example above is named in this style: ```device_size_orientation.pdf``` and we **strongly** recommend that you name your images in a similar naming convention. But you can change the names of your images to any unique name and your ```info.json``` file reflects that name.
+The example above is named in this style: ```device_size_orientation.pdf``` and we **strongly** recommend that you name your images in a similar naming convention. But you can change the names of your images to any unique name and your ```info.json``` file reflects that name.
 
 | Device 	| Size         	| Image Resolution 	| Aspect Ratio 	|
 |---------|---------------|-------------------|---------------|
 | iPhone 	| Standard     	| 1080 x 1920      	| 9 **:** 16   	|
 | iPhone 	| EdgeToEdge    | 1242 x 2688      	| 9 **:** 19.5 	|
-
-<!--| iPad   	| Standard     	| 2048 x 2732      	| 3 **:** 4     |-->
+| iPad   	| Standard     	| 2048 x 2732      	| 3 **:** 4     |
 
 ---
 
@@ -161,7 +207,7 @@ For edgeToEdge size (aka X-series) devices:
 | iPhone 11 Pro     	| 2019 	| medium 	| 1125 x 2436      	|
 | iPhone 11 Pro Max 	| 2019 	| large  	| 1242 x 2688      	|
 
-If all you want to do is change the images of an existing skin or one of the "default" templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](https://noah978.github.io/Delta-Docs/Skins#finishing-the-skin) section below to learn how to turn these files into an actual ```.deltaskin``` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
+If all you want to do is change the images or colors of an existing skin or one of the "default" templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](https://noah978.github.io/Delta-Docs/Skins#finishing-the-skin) section below to learn how to turn these files into an actual ```.deltaskin``` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
 
 # Advanced Mapping
 
@@ -182,18 +228,19 @@ Now, lets take a look at those items we skipped over previously: mappingSize, ex
 },
 ```
 
-This is the point-based size of your image. In the table below, you can see how mapping size is related to the image resolutions.
+This is the point-based size of your image. In the expanded table below, you can see how mapping size is related to the image resolutions.
 
 | Device 	| Size         	| mappingSize   | Image Resolution 	| Aspect Ratio 	|
 |---------|---------------|---------------|-------------------|---------------|
 | iPhone 	| Standard     	| 414 x 736     | 1080 x 1920      	| 9 **:** 16   	|
 | iPhone 	| EdgeToEdge    | 414 x 896     | 1242 x 2688      	| 9 **:** 19.5 	|
+| iPad   	| Standard     	| 768 x 1024    | 2048 x 2732      	| 3 **:** 4     |
 
-<!--| iPad   	| Standard     	| 768 x 1024    | 2048 x 2732      	| 3 **:** 4     |-->
+Technically you can use any mapping size with the correct aspect ratio, but for the highest quality and precision skins, I recommend you stick to the ones listed above.
 
 # items
 
-Let's take a look at the format of how each button is mapped. Each button is an object (set of curly braces) inside the "items" array. Open any button up and you should see this:
+Let's take a look at the format of how each button is mapped. Each button is a set of three things inside the items category. Open any button up and you should see this:
 
 ```
 {
@@ -215,7 +262,7 @@ Let's take a look at the format of how each button is mapped. Each button is an 
 },
 ```
 
-The inputs array will contain the button identifier(s) that you are currently mapping.
+The inputs will contain the button identifier(s) that you are currently mapping.
 
 Just so you know what each button does, they're each listed below. The more complicated buttons requiring explanation are listed first, then the full list is included in the button charts afterwards.
 
@@ -301,7 +348,15 @@ The chart below shows all the buttons compatible to use for each console on Delt
 | r          |         |    ✔    |    ✔   |         |         |    ✔    |
 | z          |         |         |         |         |         |    ✔    |
 
-The following are all custom buttons similar to the menu button. They work across all systems and utilize different Delta Emulator features. Unlike the menu button, activating will not pause the emulator.
+### Custom buttons
+
+The following are all custom buttons similar to the menu button, but unlike the menu button, they are not included in the default skins and activating them will *not* pause the emulator. They work across all systems and utilize different Delta Emulator features.
+
+```
+"inputs": [
+  "quickSave"
+],
+```
 
 | Button            | Function                                     |
 |-------------------|----------------------------------------------|
@@ -367,21 +422,87 @@ For example, let's take the A button example above. With the orientation-specifi
 
 Good, it extends all the way to edge! Per-button extendedEdges can also be applied simply to tweak the extendedEdges of a button. Just remember, map all buttons exactly as they appear on the skin with no padding, and then use extendedEdges to add the padding later.
 
-<!--# screens
+# screens
 
-The Basics
+The screens category is what Delta uses to display the game screen and what filters to use on it.
 
 ### inputFrame
 
-Each Delta core outputs a standard sized frame
+Each Delta core outputs a standard sized frame for the internal resolution of the particular console. For your easy reference, all of the consoles and the full size of their inputFrame is shown below.
+
+| Console                             	| Full inputFrame 	| Aspect Ratio 	|
+|---------------------------------------|-------------------|---------------|
+| GameBoy (Color)                     	| 160 x 144       	| 10 **:** 9   	|
+| GameBoy Advance                     	| 240 x 160       	| 3 **:** 2    	|
+| Nintendo DS                         	| 256 x 384       	| 2 **:** 3    	|
+| Nintendo Entertainment System       	| 256 x 240       	| 16 **:** 15  	|
+| Super Nintendo Entertainment System 	| 256 x 224       	| 8 **:** 7    	|
+| Nintendo 64                         	| 256 x 224       	| 8 **:** 7    	|
+
+You should notice that the Nintendo DS only has one full inputFrame but we know that a Nintendo DS has a top and bottom screen. The NDS emulation core outputs the top screen with the bottom screen immediately underneath it. If your skin is just going to display them on top of each other then you can use the full inputFrame to place it onto the skin.
+
+But if you want to separate the screens, you will need to use two different screen items:
+
+```
+"screens": [
+  {
+    "inputFrame": {
+      "x": 0,
+      "y": 0,
+      "width": 256,
+      "height": 192
+    },
+    "outputFrame": {...}
+  },
+  {
+    "inputFrame": {
+      "x": 0,
+      "y": 192,
+      "width": 256,
+      "height": 192
+    },
+    "outputFrame": {...}
+  }
+],
+```
+
+You will use exactly half the height of the full inputFrame for each of the screens. Then the top "y" will be 0 to capture the top screen and you will adjust the "y" to be 192 on the second screen to capture the bottom screen.
 
 ### outputFrame
 
-bla
+```
+"outputFrame": {
+  "x": 0,
+  "y": 103,
+  "width": 320,
+  "height": 213
+}
+```
+
+The outputFrame takes whatever you part of the image you captured with the inputFrame and choose where it appears on your skin. Like with the buttons, this must be mapped using **points**. Please note that it is **strongly** recommended you provide an area with the same aspect ratio as the inputFrame.
 
 ## Screen Filters
 
-Bleh-->
+Delta allows you to use Apple's CoreImage Filters to alter any screen item. You can find the full list of Filters and their parameters on [Apple's Reference page](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html).
+
+To apply a filter, you simply need an object with the name of the filter, and then the parameters that the filter requires. Often, a parameter must have one or more attributes of its own, as shown in the example below:
+
+```
+"inputFrame": {...},
+"outputFrame": {...},
+"filters": [
+  {
+    "name": "CIAffineTransform",
+    "parameters": {
+      "inputTransform": {
+        "rotation": 180
+      }
+    }
+  }
+]
+```
+
+Note that the inputImage is not required as a parameter since Delta automatically uses the image captured by your inputFrame. <!--Additional examples of Custom Skin filters can be found [here.](https://noah978/github.io/Delta-Docs/Skin-Filter-Examples)-->
 
 # Finishing the Skin
 
