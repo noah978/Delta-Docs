@@ -1,7 +1,8 @@
-### ⚠️ Warning ⚠️
-This tutorial currently lacks any information regarding iPad custom skins. Details about iPad skins will be included once they arrive in Delta. Be aware that the properties of Delta Skins may change over time. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
 # Delta Custom Skins
+
+### ⚠️ Warning ⚠️
+Be aware that the properties of Delta Skins may change over time. Currently, this tutorial lacks any information regarding iPad custom skins. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
 Delta Emulator was designed with the purpose of allowing custom skins to be produced *by anyone*. This allows everyone to create their own skins for either functionality or creativity. Please read on if you are interested in making your own skin or just want to know how Delta's custom skins work.
 
@@ -30,16 +31,17 @@ Skins4Delta also offers a [Skin Generator](https://generator.skins4delta.com/) t
 
 The [r/Delta_Emulator](https://reddit.com/r/Delta_Emulator) also has an active [Discord Server](https://discord.gg/ERssHqy) that will sometimes take skin requests.
 
-## Skin Basics
+# Skin Basics
 
 All delta skins are contained in ```.deltaskin``` files, for example, all the default skins included with Delta are named ```Standard.deltaskin```. These are actually just ```.zip``` files with the extension renamed. So if you change the extension name from ```.deltaskin``` to ```.zip```, you can now access the files contained within. These files should include images of different sizes and orientations which have a ```.pdf``` extension and a single ```info.json``` file.
 
-The info.json contains all the necessary information for a skin to function properly. This information includes:
+The ```info.json``` contains all the necessary information for a skin to function properly. This information includes:
 *   name
 *   identifier
 *   gameTypeIdentifier
 *   Image Names
 *   Button Mappings
+*   Screen Mappings
 *   Whether landscape supports opacity
 *   Whether the skin should be displayed in debug mode
 
@@ -50,7 +52,7 @@ As you can tell from the extension, this file is a JSON file. Although JSON file
 *   For Mac, Cocoa JSON Editor was used to make the JSON files for the included default skins, but any other JSON editor will work fine.
 *   For Windows, using an online editor is probably easiest but a powerful text editor like Atom, Sublime Text, or Coda will work as well.
 
-While working with a JSON file, it's suggested that you close all brackets (using the arrows normally found on the left side of the JSON editor) for the purpose of readability.
+While working with a JSON file, it's suggested that you close all braces and brackets (using the arrows normally found on the left side of the JSON editor for the purpose of readability.
 
 ---
 
@@ -98,8 +100,8 @@ The following items *can* all be used within both the standard and edgeToEdge ca
 
 *   assets
 *   items
-*   gameScreenFrame
 *   mappingSize
+*   screens
 *   extendedEdges
 *   translucent
 
@@ -110,63 +112,253 @@ For the purposes of this section, we will only focus on the **translucent** and 
 You can determine whether the orientation you're editing should support Delta's customizable opacity feature. Typically, only landscape skins that go on top of the game screen support this feature, but there's nothing stopping you from enabling it on portrait skins or disabling it for your own landscape overlay skin. To enable this feature, set the value to true. If you want to disable this feature, set it to false, or delete it entirely.
 
 ### assets
+**Using PDFs**
 
-The assets section is used to load the controller skin images. It should be in this format "resizable" : "name_of_file" In the standard skins it looks like this: ```"resizable" : "iphone_landscape.pdf"``` and we **strongly** recommend that you name your images in a similar naming convention. But you can change the names of your images to anything you want so long as each one is unique and your info.json file reflects that name.
+```
+"assets" : {
+  "resizable" : "iphone_edgetoedge_portrait.pdf"
+},
+```
 
-If you'd rather use ```.png``` images, it will require a little more work. You will need to have three differently sized images instead: small, medium, and large. When writing them in the JSON file it will look like this:  ```"small" : "iphone_landscape_small.pdf"``` and again, following the naming convention is recommended. Each ```.png``` image will need to be a size that corresponds with the following devices sizes:
+The assets section is used to load the controller skin images. The example above is named in this style: ```device_size_orientation.pdf``` and we **strongly** recommend that you name your images in a similar naming convention. But you can change the names of your images to any unique name and your ```info.json``` file reflects that name.
 
-For standard (aka non-X-series) devices:
-*   Small = iPhone SE
-*   Medium = iPhone 8
-*   Large = iPhone 8 Plus
+| Device 	| Size         	| Image Resolution 	| Aspect Ratio 	|
+|---------|---------------|-------------------|---------------|
+| iPhone 	| Standard     	| 1080 x 1920      	| 9 **:** 16   	|
+| iPhone 	| EdgeToEdge    | 1242 x 2688      	| 9 **:** 19.5 	|
 
-For edgeToEdge (aka X-series) devices:
-*   Small = iPhone 11 Pro
-*   Medium = iPhone 11
-*   Large = iPhone 11 Pro Max
+<!--| iPad   	| Standard     	| 2048 x 2732      	| 3 **:** 4     |-->
+
+---
+
+**Using PNGs**
+
+If you'd rather use ```.png``` images, it will require a little more work. You will need to have three differently sized images instead: small, medium, and large. When writing them in the JSON file it will look like this:
+
+```
+"assets" : {
+  "small" : "iphone_edgetoedge_portrait_small.png",
+  "medium" : "iphone_edgetoedge_portrait_medium.png",
+  "large" : "iphone_edgetoedge_portrait_large.png"
+},
+```
+
+ And again, following the naming convention is recommended. Each ```.png``` image will need to be a size that corresponds with the following devices sizes:
+
+For standard size devices:
+
+| Device        	| Year 	| Size   	| Image Resolution 	|
+|-----------------|-------|---------|-------------------|
+| iPhone SE     	| 2016 	| small  	| 640 x 1136       	|
+| iPhone 8      	| 2017 	| medium 	| 750 x 1334       	|
+| iPhone 8 Plus 	| 2017 	| large  	| 1080 x 1920      	|
+
+For edgeToEdge size (aka X-series) devices:
+
+| Device            	| Year 	| Size   	| Image Resolution 	|
+|---------------------|-------|---------|-------------------|
+| iPhone 11         	| 2019 	| small  	| 828 x 1792       	|
+| iPhone 11 Pro     	| 2019 	| medium 	| 1125 x 2436      	|
+| iPhone 11 Pro Max 	| 2019 	| large  	| 1242 x 2688      	|
 
 If all you want to do is change the images of an existing skin or one of the "default" templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](https://noah978.github.io/Delta-Docs/Skins#finishing-the-skin) section below to learn how to turn these files into an actual ```.deltaskin``` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
 
 # Advanced Mapping
 
-Congratulations, if you have gotten this far in the tutorial, you know enough to make simple modifications of how a skin looks. However, skins offer more than just the ability to switch out images; they also give you full control over exactly where the buttons should go, how big they should be, and also where the game screen itself should be placed. Combining all of these, you can create incredibly different layouts for your skins, or maybe just make the game screen a bit smaller when in landscape mode. The point is, skins were designed to be flexible, and this section will show you just how to take advantage of everything!
+Congratulations, if you have gotten this far in the tutorial, you know enough to make simple modifications of how a skin looks. However, skins offer more than just the ability to switch out images; they also give you full control over exactly where the buttons should go, how big they should be, and also where the game screen itself should be placed. Combining all of these, you can create incredibly different layouts for your skins, or maybe just make the game screen a bit smaller when in landscape mode. The point is, skins were designed to be flexible, and this section will show you how to take advantage of everything!
 
 Before we begin, I need to clarify a few things about the button mappings.
-*   Everything on each skin is mapped in **points**. On regular displays, one point is one pixel but on retina displays, one point is actually four pixels; two pixels wide and two pixels tall. So even though the iPhone image is 640 x 480 pixels, everything should be mapped as if it were 320 x 240.
-*   Just like on regular computer display, the value starts at the top (y = 0) and gets larger as you move down.
+*   Everything on each skin is mapped in **points**. While the actual resolution of an iPhone 8 Plus is ```1080 x 1920```, the logical resolution in **points** is ```414 x 736```.
+*   Just like on regular computer display, the y-value starts at the top (y = 0) and gets larger as you move down. Similarly, the x-value starts on the left (x = 0) and gets larger as you move to the right.
 
-Now, lets take a look at those items we skipped over previously: gameScreenFrame, mappingSize, extendedEdges, and items.
+Now, lets take a look at those items we skipped over previously: mappingSize, extendedEdges, items, and screens.
 
-### GameScreenFrame
+### mappingSize
 
-This is the x, y, width and height of your game screen in points.
+```
+"mappingSize" : {
+  "width" : 414,
+  "height" : 736
+},
+```
 
-### MappingSize
+This is the point-based size of your image. In the table below, you can see how mapping size is related to the image resolutions.
 
-This is the point size width and height of your image.
+| Device 	| Size         	| mappingSize   | Image Resolution 	| Aspect Ratio 	|
+|---------|---------------|---------------|-------------------|---------------|
+| iPhone 	| Standard     	| 414 x 736     | 1080 x 1920      	| 9 **:** 16   	|
+| iPhone 	| EdgeToEdge    | 414 x 896     | 1242 x 2688      	| 9 **:** 19.5 	|
 
-### ExtendedEdges
+<!--| iPad   	| Standard     	| 768 x 1024    | 2048 x 2732      	| 3 **:** 4     |-->
+
+# items
+
+Let's take a look at the format of how each button is mapped. Each button is an object (set of curly braces) inside the "items" array. Open any button up and you should see this:
+
+```
+{
+  "inputs": [
+    "a"
+  ],
+  "frame": {
+    "x": 313,
+    "y": 540,
+    "width": 47,
+    "height": 47
+  },
+  "extendedEdges": {
+    "top": 0,
+    "bottom": 0,
+    "left": 0,
+    "right": 16
+  }
+},
+```
+
+The inputs array will contain the button identifier(s) that you are currently mapping.
+
+Just so you know what each button does, they're each listed below. The more complicated buttons requiring explanation are listed first, then the full list is included in the button charts afterwards.
+
+### dpad
+
+```
+"inputs": {
+  "up": "up",
+  "down": "down",
+  "left": "left",
+  "right": "right"
+},
+```
+
+The plus-button-like control usually located on the left side of the skin. Typically, it controls movement in games. Unlike other controls, this control is actually divided up into nine sections: eight control directions, and a center neutral section. However, there aren't nine separate mappings for each section; there's only one for the entire D-Pad. So how does Delta know how to divide up the D-Pad into different sections? Simple, it just divides the button mapping you give it into three equal sections horizontally and three equal sections vertically. Because of this, it is very important that you map the D-Pad exactly as it appears on the skin, and with no extra padding, or else the directions will not exactly match what the user sees. To properly add padding without messing up the mapping, you can take advantage of the extendedEdges property.
+
+### thumbstick
+
+```
+"thumbstick": {
+  "name": "portrait_thumbstick.pdf",
+  "width": 85,
+  "height": 87
+},
+"inputs": {
+  "up": "analogStickUp",
+  "down": "analogStickDown",
+  "left": "analogStickLeft",
+  "right": "analogStickRight"
+},
+```
+
+The thumbstick is typically used for N64 skins, since it's the only system that Delta currently supports that was built with a thumbstick. But you can actually use a thumbstick instead of a dpad on **any** skin! This item includes an additional property, "thumbstick," which contains the name, width and height of a separate thumbstick image which will move around the screen with the user's thumb. Remember to use **points** for the width and height!
+
+### ab
+
+```
+"inputs": [
+  "ab"
+],
+```
+
+Some skins may have an AB button. When pressed, this button actually presses both the A and B buttons at once, which can be useful for certain games. Including it is the designers choice.
+
+### menu
+
+```
+"inputs": [
+  "menu"
+],
+```
+
+While the Start button typically pauses the game, this pauses the entire emulator, and allows you to access features such as Save States, Cheat Codes, Fast Forward, etc. As always, make sure to map it exactly without padding, since the pause menu that appears relies on the mapping to position itself.
+
+### touchscreen
+
+```
+"inputs": [
+  "x": "touchScreenX",
+  "y": "touchScreenY"
+],
+```
+
+This one is specific to Nintendo DS. The mapping must be precise so that the finger / stylus will interact with the screen appropriately. It's also worth noting that the extended edges should not be enabled for this item.
+
+### Button Charts
+
+The chart below shows all the buttons compatible to use for each console on Delta.
+
+| Button     | GB(C)   | GBA     | NDS     | NES     | SNES    | N64     |
+|------------|---------|---------|---------|---------|---------|---------|
+| a          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| b          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| ab         |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| x          |         |         |    ✔   |         |    ✔    |         |
+| y          |         |         |    ✔   |         |    ✔    |         |
+| select     |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |         |
+| start      |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| dpad       |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| cpad       |         |         |         |         |         |    ✔    |
+| thumbstick |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
+| l          |         |    ✔    |    ✔   |         |         |    ✔    |
+| r          |         |    ✔    |    ✔   |         |         |    ✔    |
+| z          |         |         |         |         |         |    ✔    |
+
+The following are all custom buttons similar to the menu button. They work across all systems and utilize different Delta Emulator features. Unlike the menu button, activating will not pause the emulator.
+
+| Button            | Function                                     |
+|-------------------|----------------------------------------------|
+| quickSave         | Creates a save state                         |
+| quickLoad         | Loads the most recent save state             |
+| fastForward       | Fast forward as long as the button is held   |
+| toggleFastForward | Turn fast forward on until pressed again     |
+
+It is recommended that you remove any buttons from your skin that do not have an input for the system the skin works with. Otherwise, the user may be confused when tapping a button that doesn't do anything.
+
+## Frame
+
+The frame defines the location of each button in points using x, y, width and height.
+
+Exactly how you find the location and size of the skin buttons may vary, but all Delta skins were mapped by downsizing images to their mapping sizes, opening them in **Photoshop**, and using a combination of masks and the Info window to find the exact pixel locations of each button. Once you find the required information, you can fill in the button mappings for each button (remember that x and y refer the top left of the button location).
+
+# ExtendedEdges
 
 In addition to the extendedEdges item in each button mapping, there is also a orientation-specific extendedEdges item. Each extendedEdges item consists of four sub-items: top, bottom, left, and right. These four items "extend" the edge of a button in that direction by whatever value it has been set to. For example, the A button may have a mapping of:
 
-*   x: 15
-*   y: 100
-*   width: 80
-*   height: 80
+```
+"frame": {
+  "x": 15,
+  "y": 100,
+  "width": 80,
+  "height": 80
+},
+```
 
-However, maybe the orientation-specific extendedEdges has a value of 10 in all directions. Now, the actual touch target of the A button would be:
+However, maybe the orientation-specific extendedEdges has a value of 10 in all directions.
+
+```
+"extendedEdges": {
+  "top": 10,
+  "bottom": 10,
+  "left": 10,
+  "right": 10
+}
+```
+
+Using the extendedEdges, the *actual* touch target of the A button would be:
 
 *   x: 5
 *   y: 90
 *   width: 100
 *   height: 100
 
+---
+
 This has two benefits:
 
 1.  It is easier to map buttons, since all you need to worry about is mapping the exact location of the button, and adding the padding later.
 2.  This allows padding to be added to the D-Pad and Menu button without messing up the internal calculations Delta uses for each button.
 
-Another reason to use extendedEdges is to ensure the touch targets of buttons near the edges of the screen actually extend to the edge. This is very important, because if you don't do this, it's easy for the user to tap near the edge of the screen but not perform any action due to the touch targets not extending far enough. To make this an easy fix, each button mapping also has its own extendedEdges item, which will overwrite the orientation-specific version if you enter a value for it. For example, let's take the A button example above. With the orientation-specific extendedEdges, you may notice that it is only 5 points away from the left edge of the screen. To get the best experience out of using your skin, you should make sure it extends all the way to the left edge. To do this, open up the a button mapping, and then open up its own extendedEdges. Once that's opened, set left to 5, and save. Now, the touch target of the A button will be:
+Another reason to use extendedEdges is to ensure the touch targets of buttons near the edges of the screen actually extend to the edge. This is very important, because if you don't do this, it's easy for the user to tap near the edge of the screen but not perform any action due to the touch targets not extending far enough. To make this an easy fix, each button mapping also has its own extendedEdges item, which will **add** to the orientation-specific version if you enter a value for it.
+
+For example, let's take the A button example above. With the orientation-specific extendedEdges, you may notice that it is only 5 points away from the left edge of the screen. To get the best experience out of using your skin, you should make sure it extends all the way to the left edge. To do this, open up the a button mapping, and then open up its own extendedEdges. Once that's opened, set left to 5, and save. Now, the touch target of the A button will be:
 
 *   x: 0
 *   y: 90
@@ -175,69 +367,21 @@ Another reason to use extendedEdges is to ensure the touch targets of buttons ne
 
 Good, it extends all the way to edge! Per-button extendedEdges can also be applied simply to tweak the extendedEdges of a button. Just remember, map all buttons exactly as they appear on the skin with no padding, and then use extendedEdges to add the padding later.
 
-# items
+<!--# screens
 
-let's take a look at the format of how each button is mapped. Open any button up and you should see four or five items:
+The Basics
 
-*   x
-*   y
-*   width
-*   height
-*   extendedEdges (certain button mappings in the default skins may not have this)
+### inputFrame
 
-The first four items define the exact location of the button in the image in points, with no padding around it.
+Each Delta core outputs a standard sized frame
 
-Exactly how you find the location and size of the skin buttons may vary, but all Delta skins were mapped by downsizing images to non-retina sizes, opening them in **Photoshop**, and using a combination of masks and the Info window to find the exact pixel locations of each button. Once you find the required information, you can fill in the button mappings for each button ( x and y refer to the x and y co-ordinates of the top left of the button location).
+### outputFrame
 
-Just so you know what each button does, they're each listed individually below. The more complicated buttons are listed first, then the simple ones are included in the button charts afterwards.
+bla
 
-### dpad
+## Screen Filters
 
-The plus-button-like control usually located on the left side of the skin. Typically, it controls movement in games. Unlike other controls, this control is actually divided up into nine sections: eight control directions, and a center neutral section. However, there aren't nine separate mappings for each section; there's only one for the entire D-Pad. So how does Delta know how to divide up the D-Pad into different sections? Simple, it just divides the button mapping you give it into three equal sections horizontally and three equal sections vertically. Because of this, it is very important that you map the D-Pad exactly as it appears on the skin, and with no extra padding, or else the directions will not exactly match what the user sees. To properly add padding without messing up the mapping, you can take advantage of the extendedEdges property.
-
-### thumbstick
-
-The thumbstick is typically used for N64 skins, since it's the only system that Delta currently supports with a thumbstick. But you can actually use a thumbstick instead of a dpad on your skin! This item includes an additional property, "thumbstick," which contains the name, width and height of a separate thumbstick image which will move around the screen with the user's thumb. Similar to the dpad, the mapping is vital that you use the exact position of the button.
-
-### ab
-
-Some skins may have an AB button. When pressed, this button actually presses both the A and B buttons at once, which can be useful for certain games. Including it is the designers choice.
-
-### menu
-
-While the Start button typically pauses the game, this pauses the entire emulator, and allows you to access features such as Save States, Cheat Codes, Fast Forward, etc. As always, make sure to map it exactly without padding, since the pause menu that appears relies on the mapping to position itself.
-
-### touchscreen
-
-This one is specific to Nintendo DS. The mapping must be precise so that the finger / stylus will interact with the screen appropriately. It's also worth noting that the extended edges should not be enabled for this item.
-
-### button charts
-
-| Button     | GB(C)   | GBA     | DS      | NES     | SNES    | N64     |
-|------------|---------|---------|---------|---------|---------|---------|
-| a          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
-| b          |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
-| x          |         |         |    ✔   |         |    ✔    |         |
-| y          |         |         |    ✔   |         |    ✔    |         |
-| select     |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |         |
-| start      |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
-| dpad       |    ✔   |    ✔    |    ✔   |    ✔    |    ✔    |    ✔    |
-| cpad       |         |         |         |         |         |    ✔    |
-| thumbstick |         |         |         |         |         |    ✔    |
-| l          |         |    ✔    |    ✔   |         |         |    ✔    |
-| r          |         |    ✔    |    ✔   |         |         |    ✔    |
-| z          |         |         |         |         |         |    ✔    |
-
-The following are all custom buttons like the menu button. They work across all systems and utilize Delta Emulator features.
-
-| Button            | Function                                     |
-|-------------------|----------------------------------------------|
-| quickSave         | Creates a save state                         |
-| quickLoad         | Loads the most recent save state             |
-| fastForward       | Fast forward as long as the button is held   |
-| toggleFastForward | Turn fast forward on until next button press |
-
-It is recommended that you remove any buttons from your skin that do not have an input for the system the skin works with. Otherwise, the user may be confused when tapping a button that doesn't do anything.
+Bleh-->
 
 # Finishing the Skin
 
@@ -259,6 +403,6 @@ Once you have your ```.deltaskin``` file, you need to import it into Delta. If y
 6.  Click Delta, then drag the skin file into Delta.
 7.  Launch Delta on your device, hit the plus sign on the top right, and select import from iTunes.
 
-If you don't want to transfer through iTunes, you can always send it to your device via Email, iMessage, or via downloading through an online file space like Google Drive.. Once you receive it on your device, Open In... Delta, and then you can select the newly imported skin in Delta’s settings.
+If you don't want to transfer through iTunes, you can always send it to your device via Email, iMessage, or via downloading through an online file space like Google Drive. Once the file is on your device, "Open In..." Delta.
 
-Once you've imported your custom skin, the last step is to start a game of your choice, and start playing with your creation. Congrats, you worked hard for it!
+Once you've imported your custom skin, you can now select it in Delta’s settings under Controller Skins. The last step is to start a game of your choice, and start playing with your creation. Congrats, you worked hard for it!
