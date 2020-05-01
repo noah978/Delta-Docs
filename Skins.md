@@ -502,7 +502,26 @@ To apply a filter, you simply need an object with the name of the filter, and th
 ]
 ```
 
-Note that the inputImage is not required as a parameter since Delta automatically uses the image captured by your inputFrame. <!--Additional examples of Custom Skin filters can be found [here.](https://noah978/github.io/Delta-Docs/Skin-Filter-Examples)-->
+Note that the inputImage is not required as a parameter since Delta automatically uses the image captured by your inputFrame. Additional examples of Custom Skin filters can be found [here.](https://noah978/github.io/Delta-Docs/Skin-Filter-Examples)
+
+Here are some common examples of parameters that require additional attributes:
+
+For any CIColor:
+```
+"inputColor": {
+  "r": "128",
+  "g": "128",
+  "b": "128"
+}
+```
+
+For any CIVector:
+```
+"inputVector": {
+  "x": "120",
+  "y": "0"
+}
+```
 
 # Finishing the Skin
 
