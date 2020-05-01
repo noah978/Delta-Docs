@@ -1,6 +1,6 @@
 # Custom Skin Filter Examples
 
-This page contains a vast set of example filters that will display the JSON code and explain what precisely the filter does.
+This page hopes to contains a vast set of example filters that will display the JSON code and then explain what precisely the filter is doing.
 
 ## CICategoryBlur
 
@@ -23,7 +23,7 @@ This page contains a vast set of example filters that will display the JSON code
   }
 }
 ```
-Makes the colors 50% more monochrome.
+Makes the colors 50% closer to the color gray.
 
 ## CICategoryCompositeOperation
 
