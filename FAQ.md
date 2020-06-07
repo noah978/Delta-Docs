@@ -1,4 +1,4 @@
-## Frequently Asked Questions
+# Frequently Asked Questions
 
 **How can I install Delta Emulator?**
 Unlike other iOS apps, you cannot install Delta from the app store. As of right now, the recommended installation method is through the use of the [AltStore.](http://AltStore.io) This method does currently require a computer, so it may not work for you.

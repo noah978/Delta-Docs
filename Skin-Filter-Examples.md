@@ -59,7 +59,7 @@ Rotates image 180 degrees.
   }
 }
 ```
-Reflects image across the X axis.
+Scales image across the x-axis negatively, which reflects it over the x-axis.
 
 ---
 
