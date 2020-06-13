@@ -1,16 +1,16 @@
 # Delta Cheat Codes
 
-This page will outline the different types of cheat codes accepted, for what systems and their format. All codes used in Delta should be alphanumeric and follow the required format. All "Master Codes" should automatically be implemented by Delta, if it doesn’t work, try adding the master code at the beginning of the cheat. 
+This page will outline the different types of cheat codes accepted, for what systems and their format. All codes used in Delta should be alphanumeric and follow the required format. All "Master Codes" should automatically be implemented by Delta, if it doesn’t work, try adding the master code at the beginning of the cheat.
 
-Also be aware that some cheat codes may only work for specific *versions* of the game. For example, the ROM may be either the original release of Pokémon FireRed or the revised version, and a single cheat code will not work with both.
+Also be aware that some cheat codes may only work for specific *versions* of the game. For example, the ROM may be either the original release of Pokémon FireRed or the revised version, and a single cheat code will not work with both. In addition, some cheats will only work on ROMs that were released for a certain *region* and not in the other regions.
 
-If you have a code that has been *proved* to work on other emulators, please check to see if an issue has already been submitted, if not, you should submit a new issue at the corresponding emulator core.
+If you have a code that has been *proved* to work on other emulators, please check to see if an issue has already been submitted, otherwise please create an issue on the corresponding Delta emulator core.
 
 ## Cheat Database
 
-As part of a later update to Delta, there will be a database of cheats in which users can search for cheats without ever having to leave the app. In fact, users won’t even need to copy and paste them, cheats of your choice will simply be added to your personal collection. The document below contains a set of GBA cheats that have all been verified to work in Delta, and will help to serve as the beginning of Delta’s cheat database.
+As part of a later update to Delta, there will be a database of cheats in which users can search for cheats without ever having to leave the app. In fact, users won’t even need to copy and paste them, cheats of your choice will simply be added to your personal collection. The repository linked below contains a set of cheats and will help to serve as the beginning of Delta’s cheat database.
 
-[Cheat Database](https://goo.gl/1bCJym)
+[Cheat Database](https://github.com/noah978/CheatBase)
 
 ## Quick Format Guide
 

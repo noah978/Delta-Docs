@@ -10,4 +10,4 @@ Please note that the official website for Delta Emulator is [deltaemulator.com](
 
 # [ROM Guidelines](https://noah978.github.io/Delta-Docs/ROM-Guidelines)
 
-# [Cheat Code Guidelines](https://noah978.github.io/Delta-Docs/Skins)
+# [Cheat Code Guidelines](https://noah978.github.io/Delta-Docs/Cheats)
