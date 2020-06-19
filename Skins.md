@@ -51,7 +51,7 @@ As you can tell from the extension, this file is a JSON file. Although JSON file
 *   For Mac, Cocoa JSON Editor was used to make the JSON files for the included default skins, but any other JSON editor will work fine.
 *   For Windows, using an online editor is probably easiest but a powerful text editor like Atom, Sublime Text, or Coda will work as well.
 
-While working with a JSON file, it's suggested that you close all braces and brackets (using the arrows normally found on the left side of the JSON editor for the purpose of readability.
+While working with a JSON file, it's suggested that you close all braces and brackets (using the arrows normally found on the left side of the JSON editor for the purpose of readability. If you aren't using an editor that detects correct JSON formatting, I recommend uploading your edited JSON file to [jsonlint.com](https://jsonlint.com) to check for syntax errors.
 
 ---
 
