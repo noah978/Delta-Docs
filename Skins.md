@@ -423,7 +423,17 @@ Good, it extends all the way to edge! Per-button extendedEdges can also be appli
 
 # screens
 
-The screens category is what Delta uses to display the game screen and what filters to use on it.
+The screens category is what Delta uses to display the game screen and what filters to use on it. Please note that this property has not reached all versions of Delta yet, and until that point it is recommended to use to following property:
+
+```
+  "gameScreenFrame": {
+    "x": 0,
+    "y": 0,
+    "width": 414,
+    "height": 276
+  }
+```
+This property appears in the same location as the screens property. Support for "gameScreenFrame" will likely continue for some time but the new screens property gives you considerably more control over the skin.
 
 ### inputFrame
 
