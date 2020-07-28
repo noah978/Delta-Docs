@@ -1,6 +1,8 @@
-Delta Emulator only supports *some* systems and each one of those systems requires the ROM's file extension (for example: ```.gba```) to be a specific extension in order for Delta to recognize the system to which the ROM belongs. To make things easier, the extension is not case-sensitive.
+# ROM Guidelines
 
-When importing ROMs into Delta, it is suggested that you import it as a ```.zip``` file. When creating the zip file, be sure to include only the ROM; if you zip a folder with the ROM inside, it will fail to import.
+Delta Emulator only supports *some* systems and each one of those systems requires the ROM's file extension (for example: ```.gba```) to be a specific extension in order for Delta to recognize the system to which the ROM belongs. The extension is not case-sensitive, but most are normally written with all lowercase letters.
+
+When importing ROMs into Delta, it is suggested that you import it as a ```.zip``` file. When creating the zip file, be sure to include only the ROM; if you zip a folder with the ROM inside, it will fail to import. All other contents of the zip file will be discarded.
 
 | Game System                               | Supported Extensions                                |
 |-------------------------------------------|-----------------------------------------------------|
