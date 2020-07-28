@@ -1,7 +1,7 @@
 # Frequently Asked Questions
 
 **How can I install Delta Emulator?**
-Unlike other iOS apps, you cannot install Delta from the app store. As of right now, the recommended installation method is through the use of the [AltStore.](http://AltStore.io) This method does currently require a computer, so it may not work for you.
+Unlike other iOS apps, you cannot install Delta from the official App Store. As of right now, the recommended installation method is through the use of the [AltStore.](http://AltStore.io) This method does currently require a computer, so it may not work for you.
 
 **What devices are supported?**
 Delta supports all devices iOS 12.2 and up, including special optimizations for the iPhone X series! Meaning "iPhone 5s and later, all iPad Air models and later, iPad mini 2 and later and iPod touch 6th generation" models are supported.
@@ -29,9 +29,11 @@ Simply long-press the image of the ROM you want to delete, press the delete butt
 **Can I transfer files between my device and my computer?**
 Yes, all data can be transferred and backed up on your computer. However, only save files and ROMs will work with other emulators as Delta save states and cheat files are only compatible with Delta. Open iTunes with your iOS device plugged in, then click on your device in the top right corner. Click "Apps" at the top of the screen, then scroll to down to the "File Sharing" section. Click Delta, and now you can drag the “Database” folder to your desktop. Inside the folder is all of your data.
 
-You can also access the ROMs and saves from the Files app in the On My iPhone section in a folder named Delta.
+If iTunes is not working for you, then I would recommend using a third-party tool like [3uTools](http://www.3u.com/) or [SynciOS](https://www.syncios.com/) to transfer the save files easily.
 
-Note: In order to find a specific game, you will need to long press a rom in Delta, hit share, then copy deep link. The unique combination of characters following "/game/" is the name of your file in the database folder.
+*(Still in Beta)* You can also access the ROMs and saves from the Files app in the On My iPhone section in a folder named Delta. In addition, you can export saves individually by long-pressing the game in Delta and selecting "Export Save" from the context menu.
+
+Note: In order to find a specific game file, you will need to long press a rom in Delta, hit share, then copy deep link. The unique combination of characters following "/game/" is the name and [SHA1 Hash](https://en.wikipedia.org/wiki/SHA-1) of your file in the database folder.
 
 **If I delete Delta, will I lose my data?**
 Yes. If the app no longer opens, copy all of your data to your computer (the database folder) so it isn’t lost, then you can try reinstalling the app and dragging your data back in. However, if you do delete the app from your phone but had Delta Sync enabled, your data in Dropbox or Google Drive will be safe and able to sync download when you get Delta reinstalled.
@@ -45,7 +47,7 @@ While playing a game, tap the Menu button, then tap the "Fast Forward" icon (two
 While playing a game, tap the Menu button, then tap the "Hold Button" icon. This will bring up the controller skin so you can choose which button(s) to sustain. Or, if you have an MFi controller connected to your device, you can configure one of the buttons to enter hold button mode whenever it is held down. Once you have done this, tap the buttons you want to remain pressed. Then press the menu button to exit.
 
 **How do I change the graphics filters?**
-This is not yet supported but is planned for a later update.
+This feature is currently available in Beta with custom skin options. This will likely be expanded upon in the future for various common filters.
 
 **Does Delta support iPad?**
 Yes. The public release of Delta only supports a letterboxed version of Delta currently. Full iPad support with custom skins is currently in development.
@@ -53,8 +55,8 @@ Yes. The public release of Delta only supports a letterboxed version of Delta cu
 **Does Delta run natively on Apple TV?**
 Not yet. This is planned for the future but might take some time to complete.
 
-**Can I link two devices with Delta running over WiFi/Bluetooth so I can trade Pokémon/battle/whatever else requires two GBAs?**
-Not yet, but you can transfer the saves to your computer and link them together using a program such as [VBA-Link](http://www.vbalink.info/download-gba-emulator.htm). This feature may be coming to Delta eventually! 🤞
+**Can I link two devices with Delta running over WiFi/Bluetooth so I can trade Pokémon/battle/whatever else requires two Handheld consoles?**
+Not yet, but you can transfer the saves to your computer and link them together using a PC emulator such as [VBA-Link](http://www.vbalink.info/download-gba-emulator.htm) or [melonDS](http://melonds.kuribo64.net/). This feature may be coming to Delta eventually! 🤞
 
 ## Save States
 
