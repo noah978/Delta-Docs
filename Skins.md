@@ -235,7 +235,7 @@ This is the point-based size of your image. In the expanded table below, you can
 | iPhone 	| EdgeToEdge    | 414 x 896     | 1242 x 2688      	| 9 **:** 19.5 	|
 | iPad   	| Standard     	| 768 x 1024    | 2048 x 2732      	| 3 **:** 4     |
 
-Technically you can use any mapping size with the correct aspect ratio, but for the highest quality and precision skins, I recommend you stick to the ones listed above.
+Technically you can use any mapping size with the correct aspect ratio, but to make skins with the highest quality and precision, I recommend you stick to the ones listed above.
 
 # items
 
