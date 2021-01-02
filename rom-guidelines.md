@@ -1,4 +1,4 @@
-# ROM-Guidelines
+# ROM Guidelines
 
 Delta Emulator only supports _some_ systems and each one of those systems requires the ROM's file extension \(for example: `.gba`\) to be a specific extension in order for Delta to recognize the system to which the ROM belongs. To make things easier, the extension is not case-sensitive.
 

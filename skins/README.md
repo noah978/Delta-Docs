@@ -1,9 +1,5 @@
 # Delta Custom Skins
 
-## [Delta-Docs](https://noah978.github.io/Delta-Docs/)
-
-## Delta Custom Skins <a id="delta-custom-skins"></a>
-
 #### ⚠️ Warning ⚠️ <a id="&#xFE0F;-warning-&#xFE0F;"></a>
 
 Be aware that the properties of Delta Skins may change over time. Currently, this tutorial has information regarding iPad custom skins, but the details might change when Delta for iPad is released. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
@@ -500,7 +496,7 @@ To apply a filter, you simply need an object with the name of the filter, and th
 ]
 ```
 
-Note that the inputImage is not required as a parameter since Delta automatically uses the image captured by your inputFrame. Additional examples of Custom Skin filters can be found [here.](custom-skin-filter-examples.md)
+Note that the inputImage is not required as a parameter since Delta automatically uses the image captured by your inputFrame. Additional examples of Custom Skin filters can be found [here.]()
 
 Here are some common examples of parameters that require additional attributes:
 
