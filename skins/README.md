@@ -6,7 +6,7 @@ Be aware that the properties of Delta Skins may change over time. Currently, thi
 
 Delta Emulator was designed with the purpose of allowing custom skins to be produced _by anyone_. This allows everyone to create their own skins for either functionality or creativity. Please read on if you are interested in making your own skin or just want to know how Delta’s custom skins work.
 
-### Download templates <a id="download-templates"></a>
+### Download Templates <a id="download-templates"></a>
 
 The following links will allow you to directly download each of the default skins for each of the systems Delta supports. It is advisable for beginners to base their skin off of the existing templates. You can download them individually or in one zip file if you plan on making skins for various systems.
 
@@ -29,7 +29,7 @@ Check out some of the skins other people have made at one of the following sites
 
 Skins4Delta also offers a [Skin Generator](https://generator.skins4delta.com/) that can take whatever image you want and apply that to the background of their default skin! While the capabilities are not infinite, you can still make your very own skin in seconds.
 
-The [r/Delta\_Emulator](https://reddit.com/r/Delta_Emulator) also has an active [Discord Server](https://discord.gg/ERssHqy) that will sometimes take skin requests.
+The [r/Delta\_Emulator](https://reddit.com/r/Delta_Emulator) subreddit also has an active [Discord Server](https://discord.gg/ERssHqy) that will sometimes take skin requests.
 
 ## Skin Basics <a id="skin-basics"></a>
 
@@ -54,6 +54,8 @@ As you can tell from the extension, this file is a JSON file. Although JSON file
 * For Windows, using an online editor is probably easiest but a powerful text editor like Atom, Sublime Text, or Coda will work as well.
 
 While working with a JSON file, it’s suggested that you close all braces and brackets \(using the arrows normally found on the left side of the JSON editor for the purpose of readability. If you aren’t using an editor that detects correct JSON formatting, I recommend uploading your edited JSON file to [jsonlint.com](https://jsonlint.com/) to check for syntax errors.
+
+### The info.json <a id="the-info.json"></a>
 
 Open up the `info.json` file and you should see these five items.
 
@@ -109,7 +111,7 @@ In future versions of Delta this property will likely be removed in favor of inc
 
 Within the representations, you will find another bracketed category called `iphone`. When iPad support is released, the iPad will be listed as a separate representation. In the following section, we will be focusing on what you need to know to make new images and change out the old ones.
 
-## Changing the Images <a id="changing-the-images"></a>
+### Changing the Images <a id="changing-the-images"></a>
 
 Almost every time you create or modify a skin, you’ll be changing the images that are displayed when actually using the skin. Luckily, changing the images is rather straightforward!
 
@@ -222,7 +224,7 @@ Before we begin, I need to clarify a few things about the button mappings.
 
 Now, lets take a look at those items we skipped over previously: mappingSize, extendedEdges, items, and screens.
 
-### mappingSize <a id="mappingsize"></a>
+### Mapping Size <a id="mapping-size"></a>
 
 ```json
 "mappingSize" : {
@@ -241,7 +243,7 @@ This is the point-based size of your image. In the expanded table below, you can
 
 Technically you can use any mapping size with the correct aspect ratio, but to make skins with the highest quality and precision, I recommend you stick to the ones listed above.
 
-### ExtendedEdges <a id="extendededges"></a>
+### Extended Edges <a id="extended-edges"></a>
 
 In addition to the orientation-specific `extendedEdges`, there is also an `extendedEdges` in each button mapping that overrides these values. Each `extendedEdges` consists of up to four sub-items: `top`, `bottom`, `left`, and `right`. These four sub-items “extend” the edge of a touch target of a button in that direction by whatever value it has been set to.
 
@@ -300,31 +302,33 @@ For example, let’s take the A button example above. With the orientation-speci
 
 Good, it extends all the way to edge! Per-button `extendedEdges` can also be applied simply to tweak the `extendedEdges` of a button. Just remember, map all buttons exactly as they appear on the skin with no padding, and then use `extendedEdges` to add the padding later.
 
-### items <a id="items"></a>
+### The Buttons <a id="items"></a>
 
 Let’s take a look a closer look at the format of how each button is mapped. Each button is a set of three things inside the `items` category. Open any button up and you should see this:
 
 ```json
-{
-  "inputs": [
-    "a"
-  ],
-  "frame": {
-    "x": 313,
-    "y": 540,
-    "width": 47,
-    "height": 47
-  },
-  "extendedEdges": {
-    "top": 0,
-    "bottom": 0,
-    "left": 0,
-    "right": 16
+"items": [
+  {
+    "inputs": [
+      "a"
+    ],
+    "frame": {
+      "x": 313,
+      "y": 540,
+      "width": 47,
+      "height": 47
+    },
+    "extendedEdges": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 16
+    }
   }
-},
+],
 ```
 
-You should already know how the [extendedEdges](/skins#extendededges) works, so next up we'll cover the `frame` and then the various `inputs` you can use.
+You should already know how the [extendedEdges](/skins#extended-edges) works, so next up we'll cover the `frame` and then the various `inputs` you can use.
 
 #### frame <a id="frame"></a>
 
@@ -378,13 +382,13 @@ The thumbstick is typically used for N64 skins, since it’s the only system tha
 },
 ```
 
-This one is specific to Nintendo DS. The mapping must be precise so that the finger / stylus will interact with the screen appropriately \(it should be identical to the lower screen's `outputFrame` in the [screens](/skins#screens) property\). It’s also worth noting that `extendedEdges` **should** be included for this item with a value of **0** for each to override the orientation-specific values.
+This one is specific to Nintendo DS. The mapping must be precise so that the finger / stylus will interact with the screen appropriately \(it should be identical to the lower screen's `outputFrame` in the [screens](/skins#game-screens) property\). It’s also worth noting that `extendedEdges` **should** be included for this item with a value of **0** for each to override the orientation-specific values.
 
 #### menu <a id="menu"></a>
 
 While the Start button typically pauses the game, this pauses the entire emulator, and allows you to access features such as Save States, Cheat Codes, Fast Forward, etc. As always, make sure to map it exactly without padding, since the pause menu that appears relies on the mapping to position itself.
 
-#### Button Charts <a id="button-charts"></a>
+### Button Charts <a id="button-charts"></a>
 
 The chart below shows all the buttons compatible to use for each console on Delta.
 
@@ -436,15 +440,15 @@ Say for example, you need to be able to press both the A button and the B button
 ],
 ```
 
-### screens <a id="screens"></a>
+### Game Screens <a id="game-screens"></a>
 
-The screens category is what Delta uses to display the game screen\(s\) and what filters to use on it.
+The `screens` category is what Delta uses to display the game screen\(s\) and what filters to use on it.
 
 #### inputFrame <a id="inputframe"></a>
 
 Each Delta emulation core outputs a standard sized frame for the internal resolution of the particular console. For your easy reference, all of the consoles and the full size of their `inputFrame` is shown below.
 
-| Console | Full `inputFrame` | Aspect Ratio |
+| Console | Full inputFrame | Aspect Ratio |
 | :--- | :--- | :--- |
 | GameBoy \(Color\) | 160 x 144 | 10 **:** 9 |
 | GameBoy Advance | 240 x 160 | 3 **:** 2 |
