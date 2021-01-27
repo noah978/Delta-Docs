@@ -1,6 +1,6 @@
 # Delta Custom Skins
 
-#### ⚠️ Warning ⚠️ <a id="&#xFE0F;-warning-&#xFE0F;"></a>
+#### ⚠️ Warning ⚠️
 
 Be aware that the properties of Delta Skins may change over time. Currently, this tutorial has information regarding iPad custom skins, but the details might change when Delta for iPad is released. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
@@ -219,7 +219,8 @@ Congratulations, if you have gotten this far in the tutorial, you know enough to
 
 Before we begin, I need to clarify a few things about the button mappings.
 
-* Everything on each skin is mapped in **points**. While the actual resolution of an iPhone 8 Plus is `1080 x 1920`, the logical resolution in **points** is `414 x 736`.
+* Everything on each skin is mapped in **points**. While the actual resolution of an iPhone 11 Pro is `1125 x 2436`, the logical resolution in **points** is `414 x 896`.
+  * You may also find it helpful to know that the "notch" on edgeToEdge devices extends 33 **points** from the top of the device.
 * Just like on regular computer display, the y-value starts at the top \(y = 0\) and gets larger as you move down. Similarly, the x-value starts on the left \(x = 0\) and gets larger as you move to the right.
 
 Now, lets take a look at those items we skipped over previously: mappingSize, extendedEdges, items, and screens.
