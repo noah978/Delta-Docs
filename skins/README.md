@@ -211,6 +211,8 @@ For edgeToEdge size \(aka X-series\) devices:
 | iPhone 11 Pro | 2019 | medium | 1125 x 2436 |
 | iPhone 11 Pro Max | 2019 | large | 1242 x 2688 |
 
+I would also highly recommend the following website that [catalogues all the iOS device sizes.](https://28b.co.uk/ios-device-dimensions-reference-table/)
+
 If all you want to do is change the images or colors of an existing skin or one of the “default” templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](/skins#finishing-the-skin) section below to learn how to turn these files into an actual `.deltaskin` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
 
 ## Advanced Mapping <a id="advanced-mapping"></a>
