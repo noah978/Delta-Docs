@@ -1,6 +1,6 @@
 # Delta Custom Skins
 
-#### ⚠️ Warning ⚠️ <a id="&#xFE0F;-warning-&#xFE0F;"></a>
+#### ⚠️ Warning ⚠️
 
 Be aware that the properties of Delta Skins may change over time. Currently, this tutorial has information regarding iPad custom skins, but the details might change when Delta for iPad is released. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
@@ -221,7 +221,8 @@ Congratulations, if you have gotten this far in the tutorial, you know enough to
 
 Before we begin, I need to clarify a few things about the button mappings.
 
-* Everything on each skin is mapped in **points**. While the actual resolution of an iPhone 8 Plus is `1080 x 1920`, the logical resolution in **points** is `414 x 736`.
+* Everything on each skin is mapped in **points**. While the actual resolution of an iPhone 11 Pro is `1125 x 2436`, the logical resolution in **points** is `414 x 896`.
+  * You may also find it helpful to know that the "notch" on edgeToEdge devices extends 33 **points** from the top of the device.
 * Just like on regular computer display, the y-value starts at the top \(y = 0\) and gets larger as you move down. Similarly, the x-value starts on the left \(x = 0\) and gets larger as you move to the right.
 
 Now, lets take a look at those items we skipped over previously: mappingSize, extendedEdges, items, and screens.
@@ -394,23 +395,25 @@ While the Start button typically pauses the game, this pauses the entire emulato
 
 The chart below shows all the buttons compatible to use for each console on Delta.
 
-| Button | GB\(C\) | GBA | NDS | NES | SNES | N64 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| a | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| b | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| x |  |  | ✔ |  | ✔ |  |
-| y |  |  | ✔ |  | ✔ |  |
+| Button | GB\(C\) | GBA | NDS | NES | SNES | N64 | SG |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| a | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| b | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| c |  |  |  |  |  |  | ✔ |
+| x |  |  | ✔ |  | ✔ |  | ✔ |
+| y |  |  | ✔ |  | ✔ |  | ✔ |
 | select | ✔ | ✔ | ✔ | ✔ | ✔ |  |
-| start | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| dpad | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| cUp |  |  |  |  |  | ✔ |
-| cDown |  |  |  |  |  | ✔ |
-| cLeft |  |  |  |  |  | ✔ |
-| cRight |  |  |  |  |  | ✔ |
-| thumbstick | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| l |  | ✔ | ✔ |  |  | ✔ |
-| r |  | ✔ | ✔ |  |  | ✔ |
-| z |  |  |  |  |  | ✔ |
+| start | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| mode |  |  |  |  |  |  | ✔ |
+| dpad | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| cUp |  |  |  |  |  | ✔ |  |
+| cDown |  |  |  |  |  | ✔ |  |
+| cLeft |  |  |  |  |  | ✔ |  |
+| cRight |  |  |  |  |  | ✔ |  |
+| thumbstick | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| l |  | ✔ | ✔ |  |  | ✔ |  |
+| r |  | ✔ | ✔ |  |  | ✔ |  |
+| z |  |  |  |  |  | ✔ | ✔ |
 
 #### Custom Buttons <a id="custom-buttons"></a>
 
@@ -448,7 +451,7 @@ The `screens` category is what Delta uses to display the game screen\(s\) and wh
 
 #### inputFrame <a id="inputframe"></a>
 
-Each Delta emulation core outputs a standard sized frame for the internal resolution of the particular console. For your easy reference, all of the consoles and the full size of their `inputFrame` is shown below.
+Each Delta emulation core outputs a standard sized frame for the internal resolution of the particular console. For your easy reference, all of the consoles and the full size of their `inputFrame` is shown below. The `inputFrame` property can also be omitted in which case Delta will just select the full screen output.
 
 | Console | Full inputFrame | Aspect Ratio |
 | :--- | :--- | :--- |
@@ -458,6 +461,7 @@ Each Delta emulation core outputs a standard sized frame for the internal resolu
 | Nintendo Entertainment System | 256 x 240 | 16 **:** 15 |
 | Super Nintendo Entertainment System | 256 x 224 | 8 **:** 7 |
 | Nintendo 64 | 256 x 224 | 8 **:** 7 |
+| Sega Genesis | 320 x 224<br>256 x 224<br>320 x 240 (a few PAL games) | 10 **:** 7<br>8 **:** 7<br>4 **:** 3 |
 
 You should notice that the Nintendo DS only has one full `inputFrame` but we know that a Nintendo DS has a top and bottom screen. The NDS emulation core outputs the top screen with the bottom screen immediately underneath it. If your skin is just going to display them on top of each other then you can use one screen with the full `inputFrame` to place it onto the skin.
 
@@ -487,6 +491,8 @@ But if you want to separate the screens, you will need to use two different scre
 ```
 
 You will use exactly half the height of the full `inputFrame` for each of the screens. Then the top `y` will be 0 to capture the top screen and you will adjust the `y` to be 192 on the second screen to capture the bottom screen.
+
+Note about SEGA Genesis: currently the `inputFrame` is not supported since there are so a many different out put sizes. Simply omit the `inputFrame` and specify only the `outputFrame` if you would like to specify a location on the skin. Changes to the way skins handle systems with varying output sizes will come in the future.
 
 #### outputFrame <a id="outputframe"></a>
 
