@@ -411,8 +411,8 @@ The chart below shows all the buttons compatible to use for each console on Delt
 | cLeft |  |  |  |  |  | ✔ |  |
 | cRight |  |  |  |  |  | ✔ |  |
 | thumbstick | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| l |  | ✔ | ✔ |  |  | ✔ |  |
-| r |  | ✔ | ✔ |  |  | ✔ |  |
+| l |  | ✔ | ✔ |  | ✔ | ✔ |  |
+| r |  | ✔ | ✔ |  | ✔ | ✔ |  |
 | z |  |  |  |  |  | ✔ | ✔ |
 
 #### Custom Buttons <a id="custom-buttons"></a>
