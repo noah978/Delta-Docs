@@ -2,7 +2,7 @@
 
 #### ⚠️ Warning ⚠️
 
-Be aware that the properties of Delta Skins may change over time. Currently, this tutorial has information regarding iPad custom skins, but the details might change when Delta for iPad is released. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
+Be aware that the properties of Delta Skins may change over time. Please report any errors in this tutorial by creating a [new issue.](https://github.com/noah978/Delta-Docs/issues/new/choose)
 
 Delta Emulator was designed with the purpose of allowing custom skins to be produced _by anyone_. This allows everyone to create their own skins for either functionality or creativity. Please read on if you are interested in making your own skin or just want to know how Delta’s custom skins work.
 
@@ -26,6 +26,7 @@ Check out some of the skins other people have made at one of the following sites
 * [Skins4Delta](https://skins4delta.com/)
 * [Delta Skins](https://delta-skins.github.io/)
 * [Circa’s Delta Skins](https://circa.im/emu/delta/skins/)
+* [LitRitt Designs](https://litritt.gitbook.io/designs/)
 
 Skins4Delta also offers a [Skin Generator](https://generator.skins4delta.com/) that can take whatever image you want and apply that to the background of their default skin! While the capabilities are not infinite, you can still make your very own skin in seconds.
 
@@ -34,6 +35,10 @@ The [r/Delta\_Emulator](https://reddit.com/r/Delta_Emulator) subreddit also has 
 ## Skin Basics <a id="skin-basics"></a>
 
 All delta skins are contained in `.deltaskin` files, for example, all the default skins included with Delta are named `Standard.deltaskin`. These are actually just `.zip` files with the extension renamed. So if you change the extension name from `.deltaskin` to `.zip`, you can now access the files contained within. These files should include images of different sizes and orientations which have a `.pdf` extension and a single `info.json` file.
+
+#### 🔥 Lit Tip 🔥
+
+Instead of changing the file extension to compress and decompress the skin files, you can set the `.deltaskin` file type to be in opened in the [7-Zip](https://www.7-zip.org/download.html) File Manager. Doing so will allow you to open the skin and drag edited files into it to quickly overwrite changes. You can also use these [Shortcuts](https://litritt.gitbook.io/designs/Graphics/Shortcuts) to more easily access `.deltaskin` files from iOS devices.
 
 The `info.json` contains all the necessary information for a skin to function properly. This information includes:
 
@@ -52,6 +57,7 @@ As you can tell from the extension, this file is a JSON file. Although JSON file
 
 * For Mac, Cocoa JSON Editor was used to make the JSON files for the included default skins, but any other JSON editor will work fine.
 * For Windows, using an online editor is probably easiest but a powerful text editor like Atom, Sublime Text, or Coda will work as well.
+* For iOS, the Jayson Editor is a good app for visually browsing a JSON file, and the Koder app works as a text-based editor.
 
 While working with a JSON file, it’s suggested that you close all braces and brackets \(using the arrows normally found on the left side of the JSON editor for the purpose of readability. If you aren’t using an editor that detects correct JSON formatting, I recommend uploading your edited JSON file to [jsonlint.com](https://jsonlint.com/) to check for syntax errors.
 
@@ -91,6 +97,7 @@ This is how Delta further determines the compatibility of each skin. Unlike the 
 | Nintendo Entertainment System | com.rileytestut.delta.game.nes |
 | Super Nintendo Entertainment System | com.rileytestut.delta.game.snes |
 | Nintendo 64 | com.rileytestut.delta.game.n64 |
+| Sega Genesis (Beta) | com.rileytestut.delta.game.genesis |
 
 #### debug <a id="debug"></a>
 
@@ -109,7 +116,7 @@ In future versions of Delta this property will likely be removed in favor of inc
 }
 ```
 
-Within the representations, you will find another bracketed category called `iphone`. When iPad support is released, the iPad will be listed as a separate representation. In the following section, we will be focusing on what you need to know to make new images and change out the old ones.
+Within the representations, you will find two bracketed categories called `iphone` and `ipad`. In the following section, we will be focusing on what you need to know to make new images and change out the old ones.
 
 ### Changing the Images <a id="changing-the-images"></a>
 
@@ -137,6 +144,15 @@ Delta also detects what orientations are supported in a skin by the presence of 
 
 If you wanted to have a portrait-only skin, you’d need to delete the landscape item; similarly, if you wanted to have a landscape-only skin, you’d need to delete the portrait item. Of course, if you wanted to support both orientations, you don’t need to delete either.
 
+Inside the ipad representation, You'll also find two categories. However, instead of supporting different device types, ipad supports normal `standard` skins as well as `splitView` skins. These are displayed at the bottom of the screen like a keyboard during iPad multitasking, such as Split View, Slide Over, and Stage Manager.
+
+```json
+"ipad" : {
+  "standard" : {...},
+  "splitView" : {...}
+}
+```
+
 The following items can all be used within **both** the `standard` and `edgeToEdge` categories:
 
 ```json
@@ -149,6 +165,8 @@ The following items can all be used within **both** the `standard` and `edgeToEd
   "translucent" : false
 }
 ```
+
+`splitView` also supports all the same items. Note that the `screens` item is **not** needed, but works when included.
 
 For the purposes of this section, we will only focus on the `translucent` and `assets` items.
 
@@ -211,7 +229,7 @@ For edgeToEdge size \(aka X-series\) devices:
 | iPhone 11 Pro | 2019 | medium | 1125 x 2436 |
 | iPhone 11 Pro Max | 2019 | large | 1242 x 2688 |
 
-I would also highly recommend the following website that [catalogues all the iOS device sizes.](https://28b.co.uk/ios-device-dimensions-reference-table/)
+I would also highly recommend the following website that [catalogues all the iOS device sizes.](https://iosref.com/res)
 
 If all you want to do is change the images or colors of an existing skin or one of the “default” templates, at this point you have all the necessary pieces to make your skin, and can skip to the [Finishing the Skin](/skins#finishing-the-skin) section below to learn how to turn these files into an actual `.deltaskin` file. However, if you want to customize the button mapping or screen location for your skins, carry on into the next section, **Advanced Mapping.**
 
@@ -245,6 +263,8 @@ This is the point-based size of your image. In the expanded table below, you can
 | iPad | Standard | 768 x 1024 | 2048 x 2732 | 3 **:** 4 |
 
 Technically you can use any mapping size with the correct aspect ratio, but to make skins with the highest quality and precision, I recommend you stick to the ones listed above.
+
+For iPad `splitView` it is recommended to use 768 for the portrait mapping width and 1024 for the landscape mapping width. The height will depend on your skin, and a shorter height will mean less multitasking content being covered up.
 
 ### Extended Edges <a id="extended-edges"></a>
 
@@ -376,6 +396,19 @@ The plus-button-like control usually located on the left side of the skin. Typic
 
 The thumbstick is typically used for N64 skins, since it’s the only system that Delta currently supports that was built with a thumbstick. But you can actually use a thumbstick instead of a D-Pad on **any** skin! This item includes an additional property, “thumbstick,” which contains the `name`, `width` and `height` of a separate thumbstick image which will move around the screen with the user’s thumb. Remember to use **points** for the `width` and `height`!
 
+#### 🔥 Lit Tip 🔥
+
+Within the `inputs` section of both dpads and thumbsticks, you can specify inputs other than direction ones. Since the corners of the input activate 2 buttons at once, this can be useful for creating interesting and unique buttons combos for niche games. The example below demonstrates using a dpad made of a, b, x, and y.
+
+```json
+"inputs": {
+  "up": "x",
+  "down": "b",
+  "left": "y",
+  "right": "a"
+},
+```
+
 #### Touch Screen <a id="touch-screen"></a>
 
 ```json
@@ -436,12 +469,14 @@ It is recommended that you remove any buttons from your skin that do not have an
 
 #### Using Multiple Inputs
 
-Say for example, you need to be able to press both the A button and the B button at the same time. It's a lot easier to do this on a physical controller than using touch controls. To conquer this issue, you can create buttons that use multiple inputs! Simply list 2 or more regular buttons in the inputs property:
+Say for example, you need to be able to press both the A button and the B button at the same time. It's a lot easier to do this on a physical controller than using touch controls. To conquer this issue, you can create buttons that use multiple inputs! Simply list 2 or more regular buttons in the inputs property. The following example can be used as a soft reset combo in the GameBoy Pokemon games:
 
 ```json
 "inputs": [
   "a",
-  "b"
+  "b",
+  "start",
+  "select"
 ],
 ```
 
@@ -528,7 +563,7 @@ To apply a filter, you simply need an object with the name of the filter, and th
 ]
 ```
 
-Note that the `inputImage` is not required as a parameter since Delta automatically uses the image captured by your `inputFrame`. Additional examples of Custom Skin filters can be found [here.](/skins/filter-examples)
+Note that the `inputImage` is not required as a parameter since Delta automatically uses the image captured by your `inputFrame`. Additional examples of Custom Skin filters can be found [here.](filter-examples.md)
 
 Here are some common examples of parameters that require additional attributes:
 
@@ -536,9 +571,9 @@ For any CIColor:
 
 ```json
 "inputColor": {
-  "r": "128",
-  "g": "128",
-  "b": "128"
+  "r": 128,
+  "g": 128,
+  "b": 128
 }
 ```
 
@@ -546,8 +581,19 @@ For any CIVector:
 
 ```json
 "inputVector": {
-  "x": "120",
-  "y": "0"
+  "x": 120,
+  "y": 0
+}
+```
+
+For any CIRectangle:
+
+```json
+"inputRectangle": {
+  "x": 20,
+  "y": 0,
+  "width": 50,
+  "height": 50
 }
 ```
 
