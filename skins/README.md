@@ -103,7 +103,7 @@ This is how Delta further determines the compatibility of each skin. Unlike the 
 
 This determines whether the skin should be displayed in “debug mode.” By default this is set to false, but when set to true, Delta will overlay red squares on top of where the buttons are mapped to. It’s recommended that you set this to true while making your skin, so that you can see when the buttons can match up nicely with the image.
 
-![Debug Mode Enabled](https://noah978.github.io/Delta-Docs/assets/example-skin-debug-enabled.png)
+![Debug Mode Enabled](/assets/example-skin-debug-enabled.png)
 
 In future versions of Delta this property will likely be removed in favor of including a debug skin option within Delta's settings.
 
