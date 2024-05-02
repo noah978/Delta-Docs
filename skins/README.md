@@ -36,6 +36,8 @@ The [r/Delta\_Emulator](https://reddit.com/r/Delta_Emulator) subreddit also has 
 
 All delta skins are contained in `.deltaskin` files, for example, all the default skins included with Delta are named `Standard.deltaskin`. These are actually just `.zip` files with the extension renamed. So if you change the extension name from `.deltaskin` to `.zip`, you can now access the files contained within. These files should include images of different sizes and orientations which have a `.pdf` extension and a single `info.json` file.
 
+On macOS, select the `.json` and all `.pdf` files, right-click and select `Compress`, then use `Get Info` to manually change the extension from `.zip` to `.deltaskin`, and select `Use .deltaskin`. Compressing a folder containing the files instead of compressing within the folder will lead to 'This file is invalid'.
+
 #### 🔥 Lit Tip 🔥
 
 Instead of changing the file extension to compress and decompress the skin files, you can set the `.deltaskin` file type to be in opened in the [7-Zip](https://www.7-zip.org/download.html) File Manager. Doing so will allow you to open the skin and drag edited files into it to quickly overwrite changes. You can also use these [Shortcuts](https://litritt.gitbook.io/designs/Graphics/Shortcuts) to more easily access `.deltaskin` files from iOS devices.
