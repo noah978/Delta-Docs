@@ -1,6 +1,8 @@
 # Frequently Asked Questions
 
-**How can I install Delta Emulator?** Unlike other iOS apps, you cannot install Delta from the official App Store. As of right now, the recommended installation method is through the use of the [AltStore.](http://AltStore.io) This method does currently require a computer, so it may not work for you.
+**How can I install Delta Emulator?** As of April 5th, 2024, Apple is allowing emulators that only emulate, "Retro game consoles only", this being said, you can now download Delta Emulator directly from the App Store.
+
+<s>**How can I install Delta Emulator?** Unlike other iOS apps, you cannot install Delta from the official App Store. As of right now, the recommended installation method is through the use of the [AltStore.](http://AltStore.io) This method does currently require a computer, so it may not work for you.</s>
 
 **What devices are supported?** Delta supports all devices iOS 12.2 and up, including special optimizations for the iPhone X series! Meaning "iPhone 5s and later, all iPad Air models and later, iPad mini 2 and later and iPod touch 6th generation" models are supported.
 
