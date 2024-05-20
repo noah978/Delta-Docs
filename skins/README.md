@@ -542,7 +542,7 @@ Note about SEGA Genesis: currently the `inputFrame` is not supported since there
 }
 ```
 
-The `outputFrame` takes whatever you part of the image you captured with the `inputFrame` and choose where it appears on your skin. Like with the buttons, this must be mapped using **points**. Please note that it is **strongly** recommended you provide an area with the same aspect ratio as the `inputFrame`.
+The `outputFrame` takes whatever part of the image you captured with the `inputFrame` and chooses where it appears on your skin. Like with the buttons, this must be mapped using **points**. Please note that it is **strongly** recommended you provide an area with the same aspect ratio as the `inputFrame`.
 
 ### Screen Filters <a id="screen-filters"></a>
 
